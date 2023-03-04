@@ -10,8 +10,16 @@ class HomeScreen {
   }
 
   String getInputView() {
-    _outputView.showInputMessage();
-    return _inputView.readCommandLine();
+    String input = '';
+    while (input.isEmpty) {
+      try {
+        _outputView.showInputMessage();
+        input = _inputView.readCommandLine();
+      } catch (e) {
+        print('입력 에러: $e');
+      }
+    }
+    return input;
   }
 
   void ballCountView(Map<String, int> ballCount) {
@@ -19,7 +27,15 @@ class HomeScreen {
   }
 
   String gameEndView() {
-    _outputView.showGameEnd();
-    return _inputView.readCommandLine();
+    String input = '';
+    while (input.isEmpty) {
+      try {
+        _outputView.showGameEnd();
+        input = _inputView.readCommandLine();
+      } catch (e) {
+        print('입력 에러: $e');
+      }
+    }
+    return input;
   }
 }
