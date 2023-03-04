@@ -7,29 +7,27 @@ void main() {
   final baseballValidation = BaseballValidation();
 
   test('createRandomNumbers', () {
-    int numbers = baseballService.createRandomNumber();
+    List<int> numbers = baseballService.createRandomNumber();
     expect([
-      baseballValidation.isUnique(numbers),
-      baseballValidation.isThreeCiphers(numbers),
-    ], allOf(isTrue));
+      baseballValidation.isUnique(numbers.join()),
+      baseballValidation.isThreeCiphers(numbers.join()),
+    ], equals([isTrue, isTrue]));
   });
 
   group('checkBallCount', () {
+    List<int> createdNumbers = [1, 2, 3];
     test('when the result is no ball and strike', () {
-      int createdNumbers = 123;
-      int input = 456;
+      List<int> input = [4, 5, 6];
       expect(baseballService.checkBallCount(createdNumbers, input),
           equals({'ball': 0, 'strike': 0}));
     });
     test('when the result is one ball and one strike', () {
-      int createdNumbers = 123;
-      int input = 134;
+      List<int> input = [1, 3, 4];
       expect(baseballService.checkBallCount(createdNumbers, input),
           equals({'ball': 1, 'strike': 1}));
     });
     test('when the result is 3 strikes', () {
-      int createdNumbers = 123;
-      int input = 123;
+      List<int> input = [1, 2, 3];
       expect(baseballService.checkBallCount(createdNumbers, input),
           equals({'ball': 0, 'strike': 3}));
     });
