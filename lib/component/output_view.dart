@@ -8,14 +8,17 @@ class OutputView {
   }
 
   void showBallCount(Map<String, int> ballCount) {
-    if (ballCount['ball'] == 0) {
+    if (ballCount['ball'] == 0 && ballCount['strike'] != 0) {
       print('${ballCount['strike']}스트라이크\n');
     }
-    if (ballCount['strike'] == 0) {
+    if (ballCount['ball'] != 0 && ballCount['strike'] == 0) {
       print('${ballCount['ball']}볼\n');
     }
     if (ballCount['ball'] != 0 && ballCount['strike'] != 0) {
       print('${ballCount['ball']}볼 ${ballCount['strike']}스트라이크\n');
+    }
+    if (ballCount['ball'] == 0 && ballCount['strike'] == 0) {
+      print('낫싱');
     }
   }
 
