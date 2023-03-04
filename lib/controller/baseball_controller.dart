@@ -15,12 +15,12 @@ class BaseballController {
 
   void play() {
     homeScreen.startView();
-    List<int> createdNumbers = baseballService.createRandomNumber();
-    _gameState(createdNumbers);
+    _gameState();
   }
 
-  void _gameState(List<int> createdNumbers) {
+  void _gameState() {
     do {
+      List<int> createdNumbers = baseballService.createRandomNumber();
       _inGame(createdNumbers);
     } while (homeScreen.gameEndView() == '1');
   }
