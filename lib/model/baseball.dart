@@ -1,8 +1,16 @@
 class Baseball {
-  final int input;
-  int _numbers = 0;
+  final List<int> numbers;
 
   Baseball({
-    required this.input,
+    required this.numbers,
   });
+
+  bool isEqual(Baseball other) {
+    for (var i = 0; i < 3; i++) {
+      if (numbers[i] != other.numbers[i]) {
+        return false;
+      }
+    }
+    return true;
+  }
 }
