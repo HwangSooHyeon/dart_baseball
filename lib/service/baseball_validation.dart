@@ -1,17 +1,17 @@
 class BaseballValidation {
   bool isNumber(String input) {
-    return true;
+    return int.tryParse(input) != null;
   }
 
-  bool isUnique(int input) {
-    return true;
+  bool isUnique(String input) {
+    return input.split('').toSet().length == 3;
   }
 
-  bool isThreeCiphers(int input) {
-    return true;
+  bool isThreeCiphers(String input) {
+    return input.split('').length == 3;
   }
 
-  bool isCorrectNumber(int input) {
-    return true;
+  bool isCorrectNumber(String input) {
+    return (input == '1' || input == '2');
   }
 }
