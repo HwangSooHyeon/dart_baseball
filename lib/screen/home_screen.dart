@@ -2,13 +2,8 @@ import 'package:dart_baseball/component/input_view.dart';
 import 'package:dart_baseball/component/output_view.dart';
 
 class HomeScreen {
-  final InputView inputView;
-  final OutputView outputView;
-
-  HomeScreen({
-    required this.inputView,
-    required this.outputView,
-  });
+  final InputView inputView = InputView();
+  final OutputView outputView = OutputView();
 
   void startView() {
     outputView.showStart();
